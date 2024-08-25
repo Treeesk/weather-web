@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+
+<title>Погода</title>
+<div>
+    <form action={% url 'weather:index'%} method="post">{% csrf_token %}
+        <input type="text" name="city" placeholder="Введите город">
+        <button type="submit" class="save btn btn-success">Отправить</button>
+    </form> 
+</div>
+<div>
+    <div><h5>{{ city_weather_updated.city }} {{ city_weather_updated.country}}</h5></div>
+    <div><h6>{{ city_weather_updated.temperature }}</h6></div>
+    <div><h6>{{ city_weather_updated.description | title }}</h6></div>
+    <div><h6>{{ city_weather_updated.wind }}</h6></div>
+</div>
